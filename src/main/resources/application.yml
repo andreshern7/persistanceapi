@@ -1,0 +1,13 @@
+
+spring:           
+   jpa:
+      hibernate:
+         ddl-auto: update  #las tablas se crean a partir de la entidad automaticamente
+      properties:
+         hibernate:
+            dialect: org.hibernate.dialect.MySQL5Dialect  #que lenguaje va a usar para hacer el parseo de clase a entidad 
+   datasource:  #es la configuracion a la base de datos
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/savedata
+     username: root
+     password: mysqladmin
