@@ -17,6 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 import learning.api.persistanceapi.model.Data;
 import learning.api.persistanceapi.service.StoreService;
 
+/**
+ * 
+ * Controller to manage the HTTP request to manage data
+ * 
+ * @author Andres Hernandez (jorge.hez2005@gmai.com)
+ * 
+ */
+
+
 @RestController
 @RequestMapping("/storage-api")
 @CrossOrigin("*")  //permite cualquier dominio (udl) para que haga peticiones a la API
@@ -30,7 +39,13 @@ public class Controller {
 		this.storageService = storageService;
 	}
 	
-	
+	/**
+	 * Creates a Database register with the request body 
+	 * 
+	 * @param toStore the atributes to create a {@link Data} object  
+	 * @return {@link Data} with the body atributes
+	 * 
+	 */
 	@PostMapping
 	public ResponseEntity<Data> storeData(@RequestBody Data toStore) {
 				
@@ -38,12 +53,25 @@ public class Controller {
 	}
 	
 	
+	/**
+	 * 
+	 * Gets a list with all previus insertions of {@link Data}  
+	 * 
+	 * @return List of {@Data}
+	 */
 	@GetMapping()
 	public ResponseEntity<List<Data>> getData(){
 			
 		return(ResponseEntity.ok(storageService.getData()));
 	}
 	
+	/**
+	 * 
+	 * Gets a {@link Data} by its unique identifier
+	 * 
+	 * @param id 
+	 * @return {@link Data}
+	 */
 	
 	@GetMapping("{id}")
 	public ResponseEntity<Data> dataById(@PathVariable("id") Integer id) {
@@ -51,6 +79,15 @@ public class Controller {
 		return(ResponseEntity.ok(storageService.getDataById(id)));
 	}
 	
+	
+	/**
+	 * 
+	 * Updates {@link Data} with the @RequesBody
+	 * 
+	 * @param id Unique identifier of {@link Data}
+	 * @param toUpdate Json with the atributes to modify
+	 * @return {@link Data} with updates
+	 */
 
 	@PutMapping("{id}")
 	public ResponseEntity<Data> updateById(@PathVariable("id") Integer id, @RequestBody Data toUpdate){
@@ -59,6 +96,13 @@ public class Controller {
 	}
 	
 	
+	/**
+	 * 
+	 * Delete {@link Data} by its Unique identifier
+	 * 
+	 * @param id
+	 * @return {@link Data} deleted
+	 */
 	@DeleteMapping("{id}")
 	public ResponseEntity<Data> deleteById(@PathVariable("id") Integer id){
 		

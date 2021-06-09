@@ -10,7 +10,6 @@ public class PersistanceapiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(PersistanceapiApplication.class, args);
 		
-		
 	}
 
 }

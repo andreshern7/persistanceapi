@@ -7,18 +7,38 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/*
+ * Data model for the business
+ * 
+ * @author Andres Hernandez (jorge.hez2005@gmai.com)
+ * 
+ */
+
 
 @Entity
 @Table(name="store")
 public class Data {
+	
+	/**
+	 * Unique id of the data that is store
+	 */
 	
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //EL Id se autoincrementa
 	private Integer id;
 	
+	/**
+	 *  The first field to store data 
+	 */
+	
 	@Column(name="first_field", nullable = false, length = 30)
 	private String firstField;
+	
+	
+	/**
+	 *  The second field to store data 
+	 */
 	
 	@Column(name="second_field", nullable = false, length = 30)
 	private String secondField;
@@ -48,7 +68,5 @@ public class Data {
 	public void setSecondField(String secondField) {
 		this.secondField = secondField;
 	}
-		
-	
 	
 }

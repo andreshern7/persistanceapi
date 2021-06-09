@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import learning.api.persistanceapi.model.Data;
 
 @Repository
-public interface Dao extends JpaRepository<Data, Integer>{
+public interface Persistance extends JpaRepository<Data, Integer>{
 
 
 }
